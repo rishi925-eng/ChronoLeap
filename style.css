@@ -1,0 +1,195 @@
+
+        /* Basic Resets and Variables */
+        :root {
+            --primary-color: #6a0dad; /* Deep Purple */
+            --secondary-color: #4a007a; /* Darker Purple */
+            --accent-color: #ffeb3b; /* Bright Yellow */
+            --text-color: #e0e0e0; /* Light Gray */
+            --background-color: #1a0033; /* Very Dark Purple */
+            --font-family: 'Inter', sans-serif; /* Prefer Inter, fallback to sans-serif */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Prevent scrollbar from animation */
+        }
+
+        /* Main Section Styling */
+        .hero-section {
+            width: 90%;
+            max-width: 1200px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            animation: backgroundShift 20s infinite alternate; /* Subtle background animation */
+        }
+
+        /* Background animation for the section */
+        @keyframes backgroundShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Header Styling */
+        .hero-section header {
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
+            letter-spacing: 2px;
+            animation: logoPulse 3s infinite alternate;
+        }
+
+        @keyframes logoPulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Main Content Styling */
+        .main-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            animation: chronoLeapFadeIn 2s ease-out forwards; /* Headline Animation */
+        }
+
+        /* Headline Animation Keyframes */
+        @keyframes chronoLeapFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+                filter: blur(10px);
+                text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateY(-10px) scale(1.02);
+                filter: blur(2px);
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        .main-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-color);
+            opacity: 0; /* Hidden initially for delayed appearance */
+            animation: fadeInText 1.5s ease-out 1s forwards; /* Delayed fade in */
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            text-decoration: none; /* For anchor tag */
+            display: inline-block; /* For anchor tag */
+            opacity: 0; /* Hidden initially for delayed appearance */
+            animation: bounceIn 1s ease-out 1.5s forwards; /* Delayed bounce in */
+        }
+
+        .cta-button:hover {
+            background-color: #ffd700; /* Slightly brighter yellow */
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Footer Styling */
+        .hero-section footer {
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 30px 15px;
+            }
+
+            .logo {
+                font-size: 2em;
+            }
+
+            .main-content h1 {
+                font-size: 2.5em;
+            }
+
+            .main-content p {
+                font-size: 1em;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 20px 10px;
+            }
+
+            .logo {
+                font-size: 1.8em;
+            }
+
+            .main-content h1 {
+                font-size: 2em;
+            }
+
+            .main-content p {
+                font-size: 0.9em;
+            }
+        }
+    
